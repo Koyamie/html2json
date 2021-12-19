@@ -65,7 +65,11 @@
           // if this tag dosen't have end tag
           // like <img src="hoge.png"/>
           // add to parents
-          var parent = bufArray[0] || results;
+          if (node.tag === 'img') {
+            var parent = results;
+          } else {
+            var parent = bufArray[0] || results;
+          }
           if (parent.child === undefined) {
             parent.child = [];
           }
